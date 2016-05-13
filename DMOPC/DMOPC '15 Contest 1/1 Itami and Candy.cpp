@@ -2,13 +2,18 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
+
 using namespace std;
+/*
+	This problem is my first ever completed problem on DMOJ and also my first ever C++ program. 
+	It is a simple math problem that involves the use of the Sieve of Eratosthenes to generate prime numbers.
+*/
 vector <int> primes;
 void sieve(int n){
-	vector<bool> list(n+1,true);
-	for (int i = 2; i*i<=n; i++){
+	vector<bool> list( n + 1, true);
+	for (int i = 2; i * i <= n; i++){
 		if (list[i]){
-			for (int j = i*i;j<=n;j+=i){
+			for (int j = i * i; j <= n; j += i){
 			list[j] = false;
 			}
 		}
@@ -20,19 +25,19 @@ void sieve(int n){
 }
 int main (){
 	int N, X;
-	cin>>N>>X;
+	cin >> N >> X;
 	sieve (N);
-	int total=0;
-	if (N<=1){
-		cout<<0<<endl;
+	int total = 0;
+	if (N <= 1) {
+		cout << 0 << endl;
 		return 0;
 	}
 	for (int n = 0; n < primes.size() ; n++){
-			total += (N - primes[n]) / X * 2 +2;
-				if ((N - primes[n]) % X == 0){
-				 total--;
-			}
+		total += (N - primes[n]) / X * 2 +2;
+		if ((N - primes[n]) % X == 0){
+			total--;
+		}
 	}
-	cout<<total<<endl;
+	cout << total << endl;
 	return 0;
 }
