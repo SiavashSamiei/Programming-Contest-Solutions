@@ -33,7 +33,7 @@ int main (){
 		return 0;
 	}
 	for (int n = 0; n < primes.size() ; n++){
-		total += (N - primes[n]) / X * 2 +2;
+		total += (N - primes[n]) / X * 2 + 2;
 		if ((N - primes[n]) % X == 0){
 			total--;
 		}
